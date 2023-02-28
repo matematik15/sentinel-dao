@@ -1,0 +1,47 @@
+#Goerli
+
+#endpoint:
+#https://api.thegraph.com/subgraphs/name/superfluid-finance/protocol-v1-goerli
+
+{
+  agreementLiquidatedV2Events(
+    where: {token_in: ["0xf2d68898557ccb2cf4c10c3ef2b034b2a69dad00", #DAIx
+    "0x5943f705abb6834cad767e6e4bb258bc48d9c947", #ETHx
+    "0x8ae68021f6170e5a766be613cea0d75236ecca9a", #USDCx
+    "0x95697ec24439e3eb7ba588c7b279b9b369236941" #TUSDx
+    ], timestamp_gte: "1674844434"}
+    orderBy: timestamp
+    orderDirection: desc
+  ) {
+    rewardAmount
+    token
+    timestamp
+    gasUsed
+    gasPrice
+  }
+}
+
+
+#Polygon
+
+#endpoint
+#https://thegraph.com/hosted-service/subgraph/superfluid-finance/protocol-v1-matic
+
+{
+  agreementLiquidatedV2Events(
+    where: {token_in: ["0x1305f6b6df9dc47159d12eb7ac2804d4a33173c2", #DAIx
+    "0x27e1e4e6bc79d93032abef01025811b7e4727e85", #ETHx
+    "0xcaa7349cea390f89641fe306d93591f87595dc1f", #USDCx
+    "0x4086ebf75233e8492f1bcda41c7f2a8288c2fb92" #WBTCx
+    ], timestamp_gte: "1674844434"}
+    orderBy: timestamp
+    orderDirection: desc
+    first: 1000
+  ) {
+    rewardAmount
+    token
+    timestamp
+    gasUsed
+    gasPrice
+  }
+}
